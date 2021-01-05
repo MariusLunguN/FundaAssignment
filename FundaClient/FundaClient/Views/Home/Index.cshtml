@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Funda.nl technical assignment</h1>
+</div>
+
+<div class="row">
+    <p>
+        1. Determine which makelaar's in Amsterdam have the most object listed for sale. Make a table of the top 10.
+    </p>
+    <p>
+        2. Then do the same thing but only for objects with a tuin which are listed for sale.
+    </p>
+    <p>
+        For the assignment you may write a program in any object oriented language of your choice and you may use any libraries that you find useful.
+    </p>
+</div>
+<br />
+<br />
+<br />
+
+<div class="row">
+    <div class="navbar-collapse collapse">
+        <p>@Html.ActionLink("1. Top 10 Makelaars", "RichestMakelaar", "Home")</p>
+        <p>@Html.ActionLink("2. Objects with a tuin", "ObjectsWithTuin", "Home")</p>
+    </div>
+</div>

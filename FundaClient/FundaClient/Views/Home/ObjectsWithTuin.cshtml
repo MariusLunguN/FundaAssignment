@@ -1,0 +1,20 @@
+﻿@{
+    var richestMakelaars = (Dictionary<int, int>)ViewData["objectsWithTuin"];
+}
+
+<h1>Top 10 makelaar's who have Tuin in their sale:</h1>
+
+<table border="1">
+    <tr>
+        <th> Makelaar ID </th>
+        <th> Number of properties for sale </th>
+    </tr>
+
+    @foreach (var item in richestMakelaars)
+    {
+        <tr>
+            <td>@item.Key</td>
+            <td>@item.Value</td>
+        </tr>
+    }
+</table>

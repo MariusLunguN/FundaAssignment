@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace FundaClient.Controllers
@@ -36,14 +37,14 @@ namespace FundaClient.Controllers
             return View();
         }
 
-        public ActionResult ObjectsWithTuin()
+        public async Task<ActionResult> ObjectsWithTuin()
         {
             var sellersList = new List<int>();
             var apiCaller = new ApiCaller();
 
             for (int i = 1; i <= 26; i++)
             {
-                var apiResponse = apiCaller.GetApiResponse(i, true);
+                var apiResponse = await apiCaller.GetApiResponseAsync(i, true);
                 var objectsArray = apiResponse["Objects"];
 
                 foreach (var item in objectsArray.Children())

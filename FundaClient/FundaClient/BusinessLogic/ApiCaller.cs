@@ -20,5 +20,16 @@ namespace FundaClient.BusinessLogic
 
             return JObject.Parse(content.Result);
         }
+
+        public async Task<JObject> GetApiResponseAsync(int i, bool hasTuin)
+        {
+            var _uri = hasTuin ? $"/?type=koop&zo=/amsterdam/tuin/&page={i}&pagesize=25" : $"/?type=koop&zo=/amsterdam/&page={i}&pagesize=25";
+            var fundaApi = string.Concat(FundaAPI, FundaKey, _uri);
+
+            var httpClient = new HttpClient();
+            Task<string> content = httpClient.GetStringAsync(fundaApi);
+
+            return await Task.Run(() => JObject.Parse(content.Result));
+        }
     }
 }
